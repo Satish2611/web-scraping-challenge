@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>Mission Mars</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+      <style>
+         .row2 img {
+         width:70%;
+         margin-left: auto;
+         margin-right: auto;
+         display: block;
+         }
+         .row3 img {
+         width:70%;
+         margin-left: auto;
+         margin-right: auto;
+         display: block;
+         }
+         .row2 h4{
+         text-align: center;
+         }
+         .row3 h4{
+         text-align: center;
+         }
+         .second_page {
+         text-align: center;
+         font-weight: bold
+         }
+         .weather h5{
+         border: 1px solid gray;
+         }
+      </style>
+   </head>
+   <body>
+      <div class="container-fluid">
+         <div class="jumbotron text-center">
+            <h1>Mission to Mars</h1>
+            <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+         </div>
+         <h2 style="font-weight: bold">Latest Mars News</h2>
+         <h4 style="font-weight: bold">{{ nasa.news_title }}</h4>
+         <h4>{{ nasa.news_p }}</h4>
+         <div class="row row1">
+            <div class="col-md-9">
+               <img width=1200px src="{{ nasa.featured_image_url }}" alt="Mars"> 
+            </div>
+            <div class="col-md-3">
+               <div class="weather">
+                  <h4 style="font-weight: bold">current weather on mars</h4>
+                  <h5> {{ nasa.mars_weather }}</h5>
+               </div>
+               <br>
+               <br>
+               <h4 style="font-weight: bold">Mars Facts</h4>
+               <table class="table table-bordered">
+                  <thead>
+                     <tr>
+                        <th></th>
+                        <th>Value</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <th>description</th>
+                        <td></td>
+                     </tr>
+                     <tr>
+                        <td>Equatorial Diameter</td>
+                        <td>{{ mars.EquatorialDiameter }}</td>
+                     </tr>
+                     <tr>
+                        <td>Polar Diameter</td>
+                        <td>{{ mars.PolarDiameter }}</td>
+                     </tr>
+                     <tr>
+                        <td>Mass</td>
+                        <td>{{ mars.Mass }}</td>
+                     </tr>
+                     <tr>
+                        <td>Moons</td>
+                        <td>{{ mars.Moons }}</td>
+                     </tr>
+                     <tr>
+                        <td>Orbit Distance</td>
+                        <td>{{ mars.OrbitDistance }}</td>
+                     </tr>
+                     <tr>
+                        <td>Orbit Period</td>
+                        <td>{{ mars.OrbitPeriod }}</td>
+                     </tr>
+                     <tr>
+                        <td>Surface Temperature</td>
+                        <td>{{ mars.SurfaceTemperature }}</td>
+                     </tr>
+                     <tr>
+                        <td>First Record</td>
+                        <td>{{ mars.FirstRecord }}</td>
+                     </tr>
+                     <tr>
+                        <td>Recorded By</td>
+                        <td>{{ mars.RecordedBy }}</td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
+         </div>
+         <div class="second_page">
+            <h2>Mars Hemisphere</h2>
+         </div>
+         <div class="row row2">
+            <div class="col-md-6">
+               <div class="card" style="width: 18rem;"></div>
+               <span class="border border-light"></span>
+               <img class="card-img-top" src=  {{ hemispshere_Cerberus.img_url }} alt="Card image cap">
+               <div class="card-body">
+                  <h4 class="card-text">{{hemispshere_Cerberus.title }}</h4>
+               </div>
+            </div>
+            <div class="col-md-6">
+               <div class="card" style="width: 18rem;"></div>
+               <img class="card-img-top" src=  {{ hemispshere_Schiaparelli.img_url }} alt="Card image cap">
+               <div class="card-body">
+                  <h4 class="card-text">{{hemispshere_Schiaparelli.title }}</h4>
+               </div>
+            </div>
+         </div>
+         <br>
+         <br>
+         <div class="row row3">
+            <div class="col-md-6">
+               <div class="card" style="width: 18rem;"></div>
+               <img width=800px padding: 25px 25px class="card-img-top" src=  {{ hemispshere_Syrtis.img_url }} alt="Card image cap">
+               <div class="card-body">
+                  <h4 class="card-text">{{hemispshere_Syrtis.title }}</h4>
+               </div>
+            </div>
+            <div class="col-md-6">
+               <div class="card" style="width: 18rem;"></div>
+               <img width=800px class="card-img-top" src=  {{ hemispshere_Valles.img_url }} alt="Card image cap">
+               <div class="card-body">
+                  <h4 class="card-text">{{hemispshere_Valles.title }}</h4>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>
